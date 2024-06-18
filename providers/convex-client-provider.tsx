@@ -7,6 +7,7 @@ import {
   Authenticated,
   ConvexReactClient
 } from 'convex/react';
+import { Loading } from '@/components/auth/loading';
 
 
 interface ConvexClientProviderProps {
@@ -15,14 +16,20 @@ interface ConvexClientProviderProps {
 
 
 const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL!;
+const clerkPublishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
 const convex = new ConvexReactClient(convexUrl);
 
 export const ConvexClientProvider = ({ children }: ConvexClientProviderProps) => {
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={clerkPublishableKey}>
       <ConvexProviderWithClerk useAuth={useAuth} client={convex}>
-        {children}
+        <Authenticated>
+          {children}
+        </Authenticated>
+        <AuthLoading>
+          <Loading />
+        </AuthLoading>
       </ConvexProviderWithClerk>
     </ClerkProvider>
   );
