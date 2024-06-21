@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEventHandler, useEffect, useState } from 'react';
+import { toast } from 'sonner';
 import {
   Dialog,
   DialogContent,
@@ -15,7 +16,6 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useApiMutation } from '@/hooks/use-api-mutation';
 import { api } from '@/convex/_generated/api';
-import { toast } from 'sonner';
 
 
 export const RenameModal = () => {
@@ -79,5 +79,5 @@ export const RenameModal = () => {
         </form>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
