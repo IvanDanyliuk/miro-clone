@@ -52,7 +52,7 @@ export const remove = mutation({
 
     const userId = identity.subject;
 
-    const exisitngFavorite = await ctx.db
+    const existingFavorite = await ctx.db
       .query('userFavorites')
       .withIndex('by_user_board', (q) => 
         q
@@ -61,8 +61,8 @@ export const remove = mutation({
       )
       .unique();
 
-    if(exisitngFavorite) {
-      await ctx.db.delete(exisitngFavorite._id);
+    if(existingFavorite) {
+      await ctx.db.delete(existingFavorite._id);
     }
 
     await ctx.db.delete(args.id);
@@ -121,9 +121,10 @@ export const favorite = mutation({
 
     const existingFavorite = await ctx.db
       .query('userFavorites')
-      .withIndex('by_user_board', (q) => q
-        .eq('userId', userId)
-        .eq('boardId', board._id)
+      .withIndex('by_user_board', (q) => 
+        q
+          .eq('userId', userId)
+          .eq('boardId', board._id)
       )
       .unique();
     

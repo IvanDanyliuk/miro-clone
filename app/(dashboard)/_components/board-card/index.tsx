@@ -12,7 +12,6 @@ import { useApiMutation } from '@/hooks/use-api-mutation';
 import { Overlay } from './overlay';
 import { Footer } from './footer';
 import { toast } from 'sonner';
-import { useMutation } from 'convex/react';
 
 
 interface BoardCardProps {
