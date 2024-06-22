@@ -50,7 +50,20 @@ export const remove = mutation({
       throw new Error('Unauthorized');
     }
 
-    // TODO: Later check to delete favorite relation as well
+    const userId = identity.subject;
+
+    const exisitngFavorite = await ctx.db
+      .query('userFavorites')
+      .withIndex('by_user_board', (q) => 
+        q
+          .eq('userId', userId)
+          .eq('boardId', args.id)
+      )
+      .unique();
+
+    if(exisitngFavorite) {
+      await ctx.db.delete(exisitngFavorite._id);
+    }
 
     await ctx.db.delete(args.id);
   },
@@ -108,10 +121,9 @@ export const favorite = mutation({
 
     const existingFavorite = await ctx.db
       .query('userFavorites')
-      .withIndex('by_user_board_org', (q) => q
+      .withIndex('by_user_board', (q) => q
         .eq('userId', userId)
         .eq('boardId', board._id)
-        .eq('orgId', args.orgId)
       )
       .unique();
     
@@ -153,7 +165,6 @@ export const unfavorite = mutation({
       .withIndex('by_user_board', (q) => q
         .eq('userId', userId)
         .eq('boardId', board._id)
-        // TODO: check if orgId needed
       )
       .unique();
     
