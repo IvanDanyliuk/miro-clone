@@ -1,6 +1,5 @@
 'use client';
 
-import { useSelf } from '@liveblocks/react/suspense';
 import { Info } from './info';
 import { Participants } from './participants';
 import { Toolbar } from './toolbar';
