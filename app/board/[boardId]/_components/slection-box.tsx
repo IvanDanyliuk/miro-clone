@@ -55,7 +55,8 @@ export const SelectionBox = memo(({
               transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
             }}
             onPointerDown={(e) => {
-              // TODO: Add resize handler
+              e.stopPropagation();
+              onResizeHandleOinterDown(Side.Top + Side.Left, bounds);
             }}
           />
           <rect 
@@ -69,7 +70,8 @@ export const SelectionBox = memo(({
               transform: `translate(${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
             }}
             onPointerDown={(e) => {
-              // TODO: Add resize handler
+              e.stopPropagation();
+              onResizeHandleOinterDown(Side.Top, bounds);
             }}
           />
           <rect 
@@ -83,7 +85,8 @@ export const SelectionBox = memo(({
               transform: `translate(${bounds.x - HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
             }}
             onPointerDown={(e) => {
-              // TODO: Add resize handler
+              e.stopPropagation();
+              onResizeHandleOinterDown(Side.Top + Side.Right, bounds);
             }}
           />
           <rect 
@@ -97,7 +100,8 @@ export const SelectionBox = memo(({
               transform: `translate(${bounds.x - HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y + bounds.height / 2 - HANDLE_WIDTH / 2}px)`,
             }}
             onPointerDown={(e) => {
-              // TODO: Add resize handler
+              e.stopPropagation();
+              onResizeHandleOinterDown(Side.Right, bounds);
             }}
           />
           <rect 
@@ -111,7 +115,8 @@ export const SelectionBox = memo(({
               transform: `translate(${bounds.x - HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px)`,
             }}
             onPointerDown={(e) => {
-              // TODO: Add resize handler
+              e.stopPropagation();
+              onResizeHandleOinterDown(Side.Bottom + Side.Right, bounds);
             }}
           />
           <rect 
@@ -125,7 +130,8 @@ export const SelectionBox = memo(({
               transform: `translate(${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px)`,
             }}
             onPointerDown={(e) => {
-              // TODO: Add resize handler
+              e.stopPropagation();
+              onResizeHandleOinterDown(Side.Bottom, bounds);
             }}
           />
           <rect 
@@ -139,7 +145,8 @@ export const SelectionBox = memo(({
               transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px)`,
             }}
             onPointerDown={(e) => {
-              // TODO: Add resize handler
+              e.stopPropagation();
+              onResizeHandleOinterDown(Side.Bottom + Side.Left, bounds);
             }}
           />
           <rect 
@@ -153,7 +160,8 @@ export const SelectionBox = memo(({
               transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2 + bounds.height / 2}px)`,
             }}
             onPointerDown={(e) => {
-              // TODO: Add resize handler
+              e.stopPropagation();
+              onResizeHandleOinterDown(Side.Left, bounds);
             }}
           />
         </>
