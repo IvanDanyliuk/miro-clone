@@ -1,10 +1,10 @@
 'use client';
 
+import { memo } from 'react';
+import { useSelf, useStorage } from '@liveblocks/react/suspense';
 import { useSelectionBounds } from '@/hooks/use-selection-bounds';
 import { SELECTION_BOX_HANDLE_WIDTH } from '@/lib/constants';
 import { LayerType, Side, XYWH } from '@/types/canvas';
-import { useSelf, useStorage } from '@liveblocks/react/suspense';
-import { memo } from 'react';
 
 
 interface SelectionBoxProps {

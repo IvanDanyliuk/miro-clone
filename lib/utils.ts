@@ -1,7 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { Camera, Color, Layer, Point, Side, XYWH } from '@/types/canvas';
-import { workerData } from 'worker_threads';
 import { COLORS } from './constants';
 
 
