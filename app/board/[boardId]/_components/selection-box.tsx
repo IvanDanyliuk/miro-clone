@@ -1,6 +1,7 @@
 'use client';
 
 import { useSelectionBounds } from '@/hooks/use-selection-bounds';
+import { SELECTION_BOX_HANDLE_WIDTH } from '@/lib/constants';
 import { LayerType, Side, XYWH } from '@/types/canvas';
 import { useSelf, useStorage } from '@liveblocks/react/suspense';
 import { memo } from 'react';
@@ -9,8 +10,6 @@ import { memo } from 'react';
 interface SelectionBoxProps {
   onResizeHandleOinterDown: (corner: Side, initialBounds: XYWH) => void;
 };
-
-const HANDLE_WIDTH = 8;
 
 
 export const SelectionBox = memo(({
@@ -50,9 +49,9 @@ export const SelectionBox = memo(({
             y={0}
             style={{
               cursor: 'nwse-resize',
-              width: `${HANDLE_WIDTH}px`,
-              height: `${HANDLE_WIDTH}px`,
-              transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
+              width: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              height: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              transform: `translate(${bounds.x - SELECTION_BOX_HANDLE_WIDTH / 2}px, ${bounds.y - SELECTION_BOX_HANDLE_WIDTH / 2}px)`,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();
@@ -65,9 +64,9 @@ export const SelectionBox = memo(({
             y={0}
             style={{
               cursor: 'ns-resize',
-              width: `${HANDLE_WIDTH}px`,
-              height: `${HANDLE_WIDTH}px`,
-              transform: `translate(${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
+              width: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              height: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              transform: `translate(${bounds.x + bounds.width / 2 - SELECTION_BOX_HANDLE_WIDTH / 2}px, ${bounds.y - SELECTION_BOX_HANDLE_WIDTH / 2}px)`,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();
@@ -80,9 +79,9 @@ export const SelectionBox = memo(({
             y={0}
             style={{
               cursor: 'nesw-resize',
-              width: `${HANDLE_WIDTH}px`,
-              height: `${HANDLE_WIDTH}px`,
-              transform: `translate(${bounds.x - HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y - HANDLE_WIDTH / 2}px)`,
+              width: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              height: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              transform: `translate(${bounds.x - SELECTION_BOX_HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y - SELECTION_BOX_HANDLE_WIDTH / 2}px)`,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();
@@ -95,9 +94,9 @@ export const SelectionBox = memo(({
             y={0}
             style={{
               cursor: 'ew-resize',
-              width: `${HANDLE_WIDTH}px`,
-              height: `${HANDLE_WIDTH}px`,
-              transform: `translate(${bounds.x - HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y + bounds.height / 2 - HANDLE_WIDTH / 2}px)`,
+              width: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              height: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              transform: `translate(${bounds.x - SELECTION_BOX_HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y + bounds.height / 2 - SELECTION_BOX_HANDLE_WIDTH / 2}px)`,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();
@@ -110,9 +109,9 @@ export const SelectionBox = memo(({
             y={0}
             style={{
               cursor: 'nwse-resize',
-              width: `${HANDLE_WIDTH}px`,
-              height: `${HANDLE_WIDTH}px`,
-              transform: `translate(${bounds.x - HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px)`,
+              width: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              height: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              transform: `translate(${bounds.x - SELECTION_BOX_HANDLE_WIDTH / 2 + bounds.width}px, ${bounds.y - SELECTION_BOX_HANDLE_WIDTH / 2 + bounds.height}px)`,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();
@@ -125,9 +124,9 @@ export const SelectionBox = memo(({
             y={0}
             style={{
               cursor: 'ns-resize',
-              width: `${HANDLE_WIDTH}px`,
-              height: `${HANDLE_WIDTH}px`,
-              transform: `translate(${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px)`,
+              width: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              height: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              transform: `translate(${bounds.x + bounds.width / 2 - SELECTION_BOX_HANDLE_WIDTH / 2}px, ${bounds.y - SELECTION_BOX_HANDLE_WIDTH / 2 + bounds.height}px)`,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();
@@ -140,9 +139,9 @@ export const SelectionBox = memo(({
             y={0}
             style={{
               cursor: 'nesw-resize',
-              width: `${HANDLE_WIDTH}px`,
-              height: `${HANDLE_WIDTH}px`,
-              transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2 + bounds.height}px)`,
+              width: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              height: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              transform: `translate(${bounds.x - SELECTION_BOX_HANDLE_WIDTH / 2}px, ${bounds.y - SELECTION_BOX_HANDLE_WIDTH / 2 + bounds.height}px)`,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();
@@ -155,9 +154,9 @@ export const SelectionBox = memo(({
             y={0}
             style={{
               cursor: 'ew-resize',
-              width: `${HANDLE_WIDTH}px`,
-              height: `${HANDLE_WIDTH}px`,
-              transform: `translate(${bounds.x - HANDLE_WIDTH / 2}px, ${bounds.y - HANDLE_WIDTH / 2 + bounds.height / 2}px)`,
+              width: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              height: `${SELECTION_BOX_HANDLE_WIDTH}px`,
+              transform: `translate(${bounds.x - SELECTION_BOX_HANDLE_WIDTH / 2}px, ${bounds.y - SELECTION_BOX_HANDLE_WIDTH / 2 + bounds.height / 2}px)`,
             }}
             onPointerDown={(e) => {
               e.stopPropagation();

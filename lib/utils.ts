@@ -2,10 +2,8 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { Camera, Color, Layer, Point, Side, XYWH } from '@/types/canvas';
 import { workerData } from 'worker_threads';
+import { COLORS } from './constants';
 
-
-const COLORS = ['#DC2626', '#D97706', '#059669', '#7C3AED', '#BD2777'];
-export const SELECTION_NET_TRASHHOLD = 5;
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

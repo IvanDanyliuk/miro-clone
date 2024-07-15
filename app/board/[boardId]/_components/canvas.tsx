@@ -5,7 +5,7 @@ import { useCanRedo, useCanUndo, useHistory, useMutation, useOthersMapped, useSt
 import { LiveObject } from '@liveblocks/client';
 import { nanoid } from 'nanoid';
 import { Camera, CanvasMode, CanvasState, Color, LayerType, Point, Side, XYWH } from '@/types/canvas';
-import { connectionIdToColor, findIntersectingLayerWithRectangle, pointerEventToCanvasPoint, resizeBounds, SELECTION_NET_TRASHHOLD } from '@/lib/utils';
+import { connectionIdToColor, findIntersectingLayerWithRectangle, pointerEventToCanvasPoint, resizeBounds } from '@/lib/utils';
 import { Info } from './info';
 import { Participants } from './participants';
 import { Toolbar } from './toolbar';
@@ -13,6 +13,7 @@ import { CursorsPresence } from './cursors-presence';
 import { LayerPreview } from './layer-preview';
 import { SelectionBox } from './selection-box';
 import { SelectionTools } from './selection-tools';
+import { SELECTION_NET_TRASHHOLD } from '@/lib/constants';
 
 
 const MAX_LAYERS = 100;
