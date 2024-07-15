@@ -2,16 +2,16 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import { useCanRedo, useCanUndo, useHistory, useMutation, useOthersMapped, useStorage } from '@liveblocks/react/suspense';
+import { LiveObject } from '@liveblocks/client';
 import { nanoid } from 'nanoid';
 import { Camera, CanvasMode, CanvasState, Color, LayerType, Point, Side, XYWH } from '@/types/canvas';
+import { connectionIdToColor, pointerEventToCanvasPoint, resizeBounds } from '@/lib/utils';
 import { Info } from './info';
 import { Participants } from './participants';
 import { Toolbar } from './toolbar';
 import { CursorsPresence } from './cursors-presence';
-import { connectionIdToColor, pointerEventToCanvasPoint, resizeBounds } from '@/lib/utils';
-import { LiveObject } from '@liveblocks/client';
 import { LayerPreview } from './layer-preview';
-import { SelectionBox } from './slection-box';
+import { SelectionBox } from './selection-box';
 import { SelectionTools } from './selection-tools';
 
 
