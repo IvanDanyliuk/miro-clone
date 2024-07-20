@@ -1,11 +1,11 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
-import { useCanRedo, useCanUndo, useHistory, useMutation, useOthersMapped, useStorage } from '@liveblocks/react/suspense';
+import { useCanRedo, useCanUndo, useHistory, useMutation, useOthersMapped, useSelf, useStorage } from '@liveblocks/react/suspense';
 import { LiveObject } from '@liveblocks/client';
 import { nanoid } from 'nanoid';
 import { Camera, CanvasMode, CanvasState, Color, LayerType, Point, Side, XYWH } from '@/types/canvas';
-import { connectionIdToColor, findIntersectingLayerWithRectangle, penPointsToPathLayer, pointerEventToCanvasPoint, resizeBounds } from '@/lib/utils';
+import { colorToCss, connectionIdToColor, findIntersectingLayerWithRectangle, penPointsToPathLayer, pointerEventToCanvasPoint, resizeBounds } from '@/lib/utils';
 import { Info } from './info';
 import { Participants } from './participants';
 import { Toolbar } from './toolbar';
@@ -14,6 +14,7 @@ import { LayerPreview } from './layer-preview';
 import { SelectionBox } from './selection-box';
 import { SelectionTools } from './selection-tools';
 import { CANVAS_MAX_LAYERS_TRASHHOLD, SELECTION_NET_TRASHHOLD } from '@/lib/constants';
+import { Path } from './path';
 
 
 interface CanvasProps {
@@ -22,6 +23,8 @@ interface CanvasProps {
 
 export const Canvas = ({ boardId }: CanvasProps) => {
   const layerIds = useStorage((root) => root.layerIds);
+
+  const pencilDraft = useSelf((me) => me.presence.pencilDraft);
 
   const [canvasState, setCanvasState] = useState<CanvasState>({
     mode: CanvasMode.None,
@@ -405,6 +408,14 @@ export const Canvas = ({ boardId }: CanvasProps) => {
             />
           )}
           <CursorsPresence />
+          {pencilDraft != null && pencilDraft.length > 0 && (
+            <Path 
+              points={pencilDraft}
+              fill={colorToCss(lastUsedColor)}
+              x={0}
+              y={0}
+            />
+          )}
         </g>
       </svg>
     </main>
